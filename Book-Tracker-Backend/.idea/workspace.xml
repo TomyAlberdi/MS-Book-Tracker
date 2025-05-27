@@ -4,14 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af117c7c-4405-4ad6-a817-222c65aca1b0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Docker/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../Docker/docker-compose.yml" afterDir="false" />
+    <list default="true" id="af117c7c-4405-4ad6-a817-222c65aca1b0" name="Changes" comment="Configured Config Server and Eureka Server modules">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +44,7 @@
     "ignore.virus.scanning.warn.message": "true",
     "jdk.selected.JAVA_MODULE": "openjdk-24",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Proyectos/MS-Book-Tracker/Book-Tracker-Backend/ConfigServer",
+    "last_opened_file_path": "D:/Proyectos/MS-Book-Tracker/Book-Tracker-Backend/UserAPI",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -55,7 +52,7 @@
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.5083566",
+    "project.structure.side.proportion": "0.55517244",
     "run.configurations.included.in.services": "true",
     "settings.editor.selected.configurable": "spring",
     "vue.rearranger.settings.migration": "true"
@@ -86,6 +83,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="UserApiApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="UserAPI" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.userapi.UserApiApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -111,12 +115,25 @@
       <workItem from="1748339088220" duration="898000" />
       <workItem from="1748339997149" duration="164000" />
       <workItem from="1748340164845" duration="135000" />
-      <workItem from="1748340302271" duration="373000" />
+      <workItem from="1748340302271" duration="1591000" />
     </task>
+    <task id="LOCAL-00001" summary="Configured Config Server and Eureka Server modules">
+      <option name="closed" value="true" />
+      <created>1748340739815</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1748340739815</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Configured Config Server and Eureka Server modules" />
+    <option name="LAST_COMMIT_MESSAGE" value="Configured Config Server and Eureka Server modules" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
