@@ -4,11 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af117c7c-4405-4ad6-a817-222c65aca1b0" name="Changes" comment="Configured Config Server and Eureka Server modules">
+    <list default="true" id="af117c7c-4405-4ad6-a817-222c65aca1b0" name="Changes" comment="Configured User API module">
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EurekaServer/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/EurekaServer/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserAPI/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/UserAPI/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserAPI/src/main/java/com/example/userapi/UserApiApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserAPI/src/main/java/com/example/userapi/UserApiApplication.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,10 +21,10 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
-  <component name="KubernetesApiProvider"><![CDATA[{
-  "isMigrated": true
-}]]></component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -39,7 +42,13 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.ConfigServerApplication.executor": "Run",
+    "Spring Boot.EurekaServerApplication.executor": "Run",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "jdk.selected.JAVA_MODULE": "openjdk-24",
@@ -68,7 +77,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.ConfigServerApplication">
+  <component name="RunManager" selected="Spring Boot.EurekaServerApplication">
     <configuration name="ConfigServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="ConfigServer" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.ConfigServer.ConfigServerApplication" />
@@ -79,6 +88,13 @@
     <configuration name="EurekaServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="EurekaServer" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.eurekaserver.EurekaServerApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="Gateway" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.gateway.GatewayApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -115,7 +131,9 @@
       <workItem from="1748339088220" duration="898000" />
       <workItem from="1748339997149" duration="164000" />
       <workItem from="1748340164845" duration="135000" />
-      <workItem from="1748340302271" duration="1591000" />
+      <workItem from="1748340302271" duration="1818000" />
+      <workItem from="1748362406628" duration="2008000" />
+      <workItem from="1748368025620" duration="3475000" />
     </task>
     <task id="LOCAL-00001" summary="Configured Config Server and Eureka Server modules">
       <option name="closed" value="true" />
@@ -125,7 +143,15 @@
       <option name="project" value="LOCAL" />
       <updated>1748340739815</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Configured User API module">
+      <option name="closed" value="true" />
+      <created>1748341946632</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1748341946632</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -133,7 +159,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Configured Config Server and Eureka Server modules" />
-    <option name="LAST_COMMIT_MESSAGE" value="Configured Config Server and Eureka Server modules" />
+    <MESSAGE value="Configured User API module" />
+    <option name="LAST_COMMIT_MESSAGE" value="Configured User API module" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
