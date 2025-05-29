@@ -22,14 +22,23 @@ public class UserController {
     
     @PostMapping("/register")
     public ResponseEntity<?> register(@RequestBody AuthRequest request) {
-        userService.register(request.getUsername(), request.getPassword());
-        return ResponseEntity.ok("User registered successfully");
+        try {
+            userService.register(request.getUsername(), request.getPassword());
+            return ResponseEntity.ok("User registered successfully");
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(Collections.singletonMap("error", e.getMessage()));
+        }
     }
     
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody AuthRequest request) {
-        String token = userService.login(request.getUsername(), request.getPassword());
-        return ResponseEntity.ok(Collections.singletonMap("token", token));
+        try {
+            String token = userService.login(request.getUsername(), request.getPassword());
+            return ResponseEntity.ok(Collections.singletonMap("token", token));
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                    .body(Collections.singletonMap("error", e.getMessage()));
+        }
     }
     
     @GetMapping("/profile")
