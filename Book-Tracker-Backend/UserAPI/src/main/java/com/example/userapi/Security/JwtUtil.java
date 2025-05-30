@@ -20,8 +20,11 @@ public class JwtUtil {
         byte[] keyBytes = Decoders.BASE64.decode(SECRET);
         return Keys.hmacShaKeyFor(keyBytes);
     }
-    
+
     public String generateToken(String username) {
+        if (username == null) {
+            throw new IllegalArgumentException("Username cannot be null when generating token");
+        }
         return Jwts.builder()
                 .subject(username)
                 .expiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
