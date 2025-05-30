@@ -15,7 +15,7 @@ import java.util.Collections;
 @AllArgsConstructor
 @RestControllerAdvice
 @Validated
-@RequestMapping("/user")
+@RequestMapping("/users")
 public class UserController {
     private final UserService userService;
     private final JwtUtil jwtUtil;
