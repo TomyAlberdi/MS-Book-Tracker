@@ -1,7 +1,9 @@
+import CustomRouter from "@/routes";
+
 function App() {
   return (
     <div>
-      <span>test</span>
+      <CustomRouter />
     </div>
   );
 }

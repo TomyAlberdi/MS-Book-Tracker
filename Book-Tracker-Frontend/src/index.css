@@ -144,3 +144,7 @@
   width: 2em;
   height: 2em;
 }
+
+.pageBody {
+  min-height: calc(100svh - 5rem);
+}
