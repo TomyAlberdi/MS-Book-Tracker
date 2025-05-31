@@ -1,3 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@200;300;400;500;700&display=swap");
+
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -117,4 +120,27 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+* {
+  font-family: "Roboto Mono", monospace;
+  user-select: none;
+  box-sizing: border-box;
+}
+
+.alternate-font {
+  font-family: "Be Vietnam Pro", sans-serif;
+}
+
+.big-icon {
+  width: 1em;
+  height: 1em;
+}
+.bigger-icon {
+  width: 1.5em;
+  height: 1.5em;
+}
+.large-icon {
+  width: 2em;
+  height: 2em;
 }
