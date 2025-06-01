@@ -24,11 +24,13 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from "@/components/ui/sidebar";
-import { useUserContext } from "@/context/useUserContext";
+import { useUserContext } from "@/context/UseUserContext";
+import { useNavigate } from "react-router-dom";
 
 const NavUser = () => {
   const { isMobile } = useSidebar();
   const { user, logout } = useUserContext();
+  const navigate = useNavigate();
   //TODO: Implement user settings dialog
   return (
     <SidebarMenu>
@@ -71,11 +73,11 @@ const NavUser = () => {
               </DropdownMenuLabel>
             ) : (
               <DropdownMenuGroup>
-                <DropdownMenuItem>
+                <DropdownMenuItem onClick={() => navigate("/register")}>
                   <PenLine />
                   Register
                 </DropdownMenuItem>
-                <DropdownMenuItem>
+                <DropdownMenuItem onClick={() => navigate("/login")}>
                   <BookOpenCheck />
                   Login
                 </DropdownMenuItem>
