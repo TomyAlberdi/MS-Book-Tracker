@@ -10,11 +10,13 @@ interface UserContextComponentProps {
 const UserContextComponent: React.FC<UserContextComponentProps> = ({
   children,
 }) => {
-  const [User, setUser] = useState<User>({
-    username: "tomy",
-  });
+  const [User, setUser] = useState<User | null>(null);
 
   const register = (user: UserWithCredentials) => {
+    if (User) {
+      toast.error("You are already logged in!");
+      return;
+    }
     console.log(
       "register:",
       user.username + " with password: " + user.password
@@ -24,14 +26,21 @@ const UserContextComponent: React.FC<UserContextComponentProps> = ({
   };
 
   const login = (user: UserWithCredentials) => {
+    if (User) {
+      toast.error("You are already logged in!");
+      return;
+    }
     console.log("login:", user.username + " with password: " + user.password);
     setUser(user);
     toast.success("Logged in successfully!");
   };
 
   const logout = () => {
-    console.log("logout:", User.username);
-    setUser({ username: "" });
+    if (!User) {
+      toast.error("You are not logged in!");
+      return;
+    }
+    setUser(null);
     toast.success("Logged out successfully!");
   };
 
