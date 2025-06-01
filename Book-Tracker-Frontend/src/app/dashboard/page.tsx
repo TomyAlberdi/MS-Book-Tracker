@@ -3,8 +3,8 @@ import {
   Breadcrumb,
   BreadcrumbItem,
   BreadcrumbList,
-  BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb"
+import { ScrollArea } from "@/components/ui/scroll-area"
 import { Separator } from "@/components/ui/separator"
 import {
   SidebarInset,
@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/sidebar"
 import { Outlet } from "react-router-dom"
 
+//TODO: Design + implement breadcrumbs
 export default function Page() {
   return (
     <SidebarProvider>
@@ -30,14 +31,13 @@ export default function Page() {
                 <BreadcrumbItem className="hidden md:block">
                     Book Tracker
                 </BreadcrumbItem>
-                <BreadcrumbSeparator className="hidden md:block" />
               </BreadcrumbList>
             </Breadcrumb>
           </div>
         </header>
-        <div className="pageBody">
+        <ScrollArea className="pageBody overflow-x-hidden pb-4 px-4">
           <Outlet />
-        </div>
+        </ScrollArea>
       </SidebarInset>
     </SidebarProvider>
   )

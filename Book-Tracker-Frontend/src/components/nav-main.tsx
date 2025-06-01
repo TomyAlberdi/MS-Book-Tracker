@@ -19,6 +19,7 @@ import {
   SidebarMenuSubItem,
 } from "@/components/ui/sidebar"
 
+//TODO: Make entire nav menu button trigger open state (instea of just the icon)
 export function NavMain({
   items,
 }: {

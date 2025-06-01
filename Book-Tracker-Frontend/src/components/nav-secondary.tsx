@@ -9,6 +9,7 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar"
 
+//TODO: Implement feedback dialog (send email)
 export function NavSecondary({
   items,
   ...props

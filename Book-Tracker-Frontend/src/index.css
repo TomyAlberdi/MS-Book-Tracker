@@ -146,5 +146,5 @@
 }
 
 .pageBody {
-  min-height: calc(100svh - 5rem);
+  height: calc(100svh - 5rem);
 }
