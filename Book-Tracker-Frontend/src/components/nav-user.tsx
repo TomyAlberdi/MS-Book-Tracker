@@ -25,12 +25,14 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar";
 import { useUserContext } from "@/context/UseUserContext";
+import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 
 const NavUser = () => {
   const { isMobile } = useSidebar();
   const { user, logout } = useUserContext();
   const navigate = useNavigate();
+  const { t } = useTranslation();
   //TODO: Implement user settings dialog
   return (
     <SidebarMenu>
@@ -45,8 +47,8 @@ const NavUser = () => {
                 <BookUser />
               </div>
               <div className="grid flex-1 text-left text-sm leading-tight">
-                <span className="truncate font-medium">
-                  {user ? user.username : "Register / Login"}
+                <span className="truncate font-medium text-center">
+                  {user ? user.username : `${t("Login")}`}
                 </span>
               </div>
               <ChevronsUpDown className="ml-auto size-4" />
@@ -75,11 +77,11 @@ const NavUser = () => {
               <DropdownMenuGroup>
                 <DropdownMenuItem onClick={() => navigate("/register")}>
                   <PenLine />
-                  Register
+                  {t("Register")}
                 </DropdownMenuItem>
                 <DropdownMenuItem onClick={() => navigate("/login")}>
                   <BookOpenCheck />
-                  Login
+                  {t("Login")}
                 </DropdownMenuItem>
               </DropdownMenuGroup>
             )}
@@ -87,7 +89,7 @@ const NavUser = () => {
             <DropdownMenuGroup>
               <DropdownMenuItem>
                 <Settings />
-                Settings
+                {t("Settings")}
               </DropdownMenuItem>
             </DropdownMenuGroup>
             {user && (
@@ -95,7 +97,7 @@ const NavUser = () => {
                 <DropdownMenuSeparator />
                 <DropdownMenuItem onClick={logout}>
                   <Eraser />
-                  Log out
+                  {t("Logout")}
                 </DropdownMenuItem>
               </>
             )}

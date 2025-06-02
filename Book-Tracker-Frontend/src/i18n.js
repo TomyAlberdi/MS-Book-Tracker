@@ -13,7 +13,9 @@ const resources = {
       ExistingUsername: "Username already exists.",
       InvalidPassword: "Invalid password.",
       Login: "Login",
-      
+      Logout: "Logout",
+      // Utils
+      Settings: "Settings",
       Search: "Search",
       NoResultsFound: "No results found",
       Language: "Language",
@@ -47,7 +49,9 @@ const resources = {
       ExistingUsername: "El nombre de usuario ya existe.",
       InvalidPassword: "Contraseña inválida.",
       Login: "Iniciar sesión",
-
+      Logout: "Cerrar sesión",
+      // Utils
+      Settings: "Ajustes",
       Search: "Buscar",
       NoResultsFound: "No se encontraron resultados",
       Language: "Idioma",
