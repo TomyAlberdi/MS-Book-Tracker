@@ -1,6 +1,10 @@
 import Home from "@/app/Pages/Home";
+import NotFound from "@/app/Pages/NotFound";
 
-//TODO: Implement 404 not found fallback page
 export const routesConfig = [
-  { index: true, element: <Home /> }
-]
+  {
+    path: "*",
+    element: <NotFound />,
+  },
+  { index: true, element: <Home /> },
+];

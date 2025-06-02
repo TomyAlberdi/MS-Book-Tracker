@@ -1,8 +1,8 @@
-import { Navigate, useRoutes } from "react-router-dom";
 import Page from "@/app/dashboard/page";
-import { routesConfig } from "@/hooks/routesConfig";
-import Register from "@/components/Auth/Register";
 import Login from "@/components/Auth/Login";
+import Register from "@/components/Auth/Register";
+import { routesConfig } from "@/hooks/routesConfig";
+import { useRoutes } from "react-router-dom";
 
 const CustomRouter = () => {
   return useRoutes([
@@ -18,11 +18,7 @@ const CustomRouter = () => {
     {
       path: "/login",
       element: <Login />,
-    },
-    {
-      path: "*",
-      element: <Navigate to="/" />,
-    },
+    }
   ]);
 };
 
