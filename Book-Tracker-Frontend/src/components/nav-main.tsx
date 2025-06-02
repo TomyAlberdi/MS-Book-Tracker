@@ -40,19 +40,19 @@ export function NavMain({
         {items.map((item) => (
           <Collapsible key={item.title} asChild defaultOpen={item.isActive}>
             <SidebarMenuItem>
+              <SidebarMenuButton asChild tooltip={item.title}>
+                <a href={item.url}>
+                  <item.icon />
+                  <span>{item.title}</span>
+                </a>
+              </SidebarMenuButton>
               {item.items?.length ? (
                 <>
                   <CollapsibleTrigger asChild>
-                    <SidebarMenuButton className="cursor-pointer">
-                      <item.icon />
-                      <span>{item.title}</span>
-                      {/* TODO: Fix icon rotation on state change */}
-                      <SidebarMenuAction>
-                        <div className="data-[state=open]:rotate-90">
-                          <ChevronRight />
-                        </div>
-                      </SidebarMenuAction>
-                    </SidebarMenuButton>
+                    <SidebarMenuAction className="data-[state=open]:rotate-90 cursor-pointer">
+                      <ChevronRight />
+                      <span className="sr-only">Toggle</span>
+                    </SidebarMenuAction>
                   </CollapsibleTrigger>
                   <CollapsibleContent>
                     <SidebarMenuSub>

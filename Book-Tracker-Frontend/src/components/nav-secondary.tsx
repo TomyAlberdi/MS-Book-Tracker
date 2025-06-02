@@ -33,7 +33,7 @@ export function NavSecondary({
                     <span>{item.title}</span>
                   </SidebarMenuButton>
                 </DialogTrigger>
-                <DialogContent>
+                <DialogContent aria-describedby={undefined}>
                   <item.content />
                 </DialogContent>
               </Dialog>
