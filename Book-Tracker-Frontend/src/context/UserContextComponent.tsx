@@ -1,6 +1,8 @@
-import { useState, type ReactNode } from "react";
 import { UserContext, type UserContextType } from "@/context/UserContext";
 import type { User, UserWithCredentials } from "@/lib/interfaces";
+import { loadUserFromStorage } from "@/lib/utils";
+import { useState, type ReactNode } from "react";
+import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 
 interface UserContextComponentProps {
@@ -10,29 +12,79 @@ interface UserContextComponentProps {
 const UserContextComponent: React.FC<UserContextComponentProps> = ({
   children,
 }) => {
-  const [User, setUser] = useState<User | null>(null);
 
-  const register = (user: UserWithCredentials) => {
-    if (User) {
-      toast.error("You are already logged in!");
-      return;
+  const navigate = useNavigate();
+
+  const STORAGE_KEY = import.meta.env.VITE_USER_STORAGE_KEY;
+  const BASE_URL = import.meta.env.VITE_BASE_URL;
+
+  const [User, setUser] = useState<User | null>(() => loadUserFromStorage());
+
+  const persistUser = (userData: User | null) => {
+    if (userData) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(userData));
+    } else {
+      localStorage.removeItem(STORAGE_KEY);
     }
-    console.log(
-      "register:",
-      user.username + " with password: " + user.password
-    );
-    toast.success("Registered successfully!");
-    setUser(user);
+    setUser(userData);
   };
 
-  const login = (user: UserWithCredentials) => {
+  const register = async (user: UserWithCredentials) => {
     if (User) {
       toast.error("You are already logged in!");
       return;
     }
-    console.log("login:", user.username + " with password: " + user.password);
-    setUser(user);
-    toast.success("Logged in successfully!");
+    const url = `${BASE_URL}/users/register`;
+    toast.loading("Registering user...");
+    try {
+      const response = await fetch(url, {
+        method: "POST",
+        body: JSON.stringify(user),
+      })
+      toast.dismiss();
+      if (!response.ok) {
+        const responseData = await response.json();
+        toast.error(`Something went wrong: ${responseData.message}`);
+        return
+      }
+      const res = await response.json();
+      persistUser(res);
+      navigate("/");
+      toast.success("Registered successfully!");
+    } catch (error) {
+      toast.dismiss();
+      toast.error("Something went wrong");
+      console.error(error);
+    }
+  };
+
+  const login = async (user: UserWithCredentials) => {
+    if (User) {
+      toast.error("You are already logged in!");
+      return;
+    }
+    const url = `${BASE_URL}/users/login`;
+    toast.loading("Logging in...");
+    try {
+      const response = await fetch(url, {
+        method: "POST",
+        body: JSON.stringify(user),
+      })
+      toast.dismiss();
+      if (!response.ok) {
+        const responseData = await response.json();
+        toast.error(`Something went wrong: ${responseData.message}`);
+        return
+      }
+      const res = await response.json();
+      persistUser(res);
+      navigate("/");
+      toast.success("Logged in successfully!");
+    } catch (error) {
+      toast.dismiss();
+      toast.error("Something went wrong");
+      console.error(error);
+    }
   };
 
   const logout = () => {
@@ -40,7 +92,7 @@ const UserContextComponent: React.FC<UserContextComponentProps> = ({
       toast.error("You are not logged in!");
       return;
     }
-    setUser(null);
+    persistUser(null);
     toast.success("Logged out successfully!");
   };
 
