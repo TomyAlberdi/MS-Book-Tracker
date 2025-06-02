@@ -15,10 +15,12 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { useUserContext } from "@/context/UseUserContext";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 import { z } from "zod";
 
 const FormSchema = z.object({
@@ -28,8 +30,17 @@ const FormSchema = z.object({
 
 const Register = () => {
   const { t } = useTranslation();
+  const { user, register } = useUserContext();
+  const navigate = useNavigate();
 
-  const [LoadingRequest, setLoadingRequest] = useState(false)
+  useEffect(() => {
+    if (user) {
+      navigate("/");
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user]);
+
+  const [LoadingRequest, setLoadingRequest] = useState(false);
 
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
@@ -40,8 +51,14 @@ const Register = () => {
   });
 
   const onSubmit = (data: z.infer<typeof FormSchema>) => {
-    //TODO: Implement API request on register using context
-    console.log(data)
+    try {
+      setLoadingRequest(true);
+      register(data);
+    } catch (error) {
+      console.error("Registration failed:", error);
+    } finally {
+      setLoadingRequest(false);
+    }
   };
 
   return (
@@ -74,7 +91,7 @@ const Register = () => {
                   <FormItem>
                     <FormLabel>{t("Password")}</FormLabel>
                     <FormControl>
-                      <Input {...field} type="password" />
+                      <Input {...field} type="password" autoComplete="off" />
                     </FormControl>
                     <FormMessage />
                   </FormItem>

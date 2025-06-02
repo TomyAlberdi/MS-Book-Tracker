@@ -1,10 +1,5 @@
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Form,
   FormControl,
@@ -14,10 +9,12 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { useUserContext } from "@/context/UseUserContext";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 import { z } from "zod";
 
 const FormSchema = z.object({
@@ -27,8 +24,17 @@ const FormSchema = z.object({
 
 const Login = () => {
   const { t } = useTranslation();
+  const { user, login } = useUserContext();
+  const navigate = useNavigate();
 
-  const [LoadingRequest, setLoadingRequest] = useState(false)
+  useEffect(() => {
+    if (user) {
+      navigate("/");
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user]);
+
+  const [LoadingRequest, setLoadingRequest] = useState(false);
 
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
@@ -39,8 +45,14 @@ const Login = () => {
   });
 
   const onSubmit = (data: z.infer<typeof FormSchema>) => {
-    //TODO: Implement API request on Login using context
-    console.log(data)
+    try {
+      setLoadingRequest(true);
+      login(data);
+    } catch (error) {
+      console.error("Registration failed:", error);
+    } finally {
+      setLoadingRequest(false);
+    }
   };
 
   return (
@@ -72,7 +84,7 @@ const Login = () => {
                   <FormItem>
                     <FormLabel>{t("Password")}</FormLabel>
                     <FormControl>
-                      <Input {...field} type="password" />
+                      <Input {...field} type="password" autoComplete="on" />
                     </FormControl>
                     <FormMessage />
                   </FormItem>

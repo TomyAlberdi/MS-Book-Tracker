@@ -12,7 +12,6 @@ interface UserContextComponentProps {
 const UserContextComponent: React.FC<UserContextComponentProps> = ({
   children,
 }) => {
-
   const navigate = useNavigate();
 
   const STORAGE_KEY = import.meta.env.VITE_USER_STORAGE_KEY;
@@ -39,13 +38,16 @@ const UserContextComponent: React.FC<UserContextComponentProps> = ({
     try {
       const response = await fetch(url, {
         method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify(user),
-      })
+      });
       toast.dismiss();
       if (!response.ok) {
         const responseData = await response.json();
-        toast.error(`Something went wrong: ${responseData.message}`);
-        return
+        toast.error(`Something went wrong: ${responseData.error}`);
+        return;
       }
       const res = await response.json();
       persistUser(res);
@@ -68,13 +70,16 @@ const UserContextComponent: React.FC<UserContextComponentProps> = ({
     try {
       const response = await fetch(url, {
         method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify(user),
-      })
+      });
       toast.dismiss();
       if (!response.ok) {
         const responseData = await response.json();
-        toast.error(`Something went wrong: ${responseData.message}`);
-        return
+        toast.error(`Something went wrong: ${responseData.error}`);
+        return;
       }
       const res = await response.json();
       persistUser(res);
