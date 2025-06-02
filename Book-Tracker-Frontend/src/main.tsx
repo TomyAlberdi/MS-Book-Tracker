@@ -5,6 +5,7 @@ import "@/index.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { BrowserRouter } from "react-router-dom";
 import UserContextComponent from "@/context/UserContextComponent";
+import "@/i18n";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
