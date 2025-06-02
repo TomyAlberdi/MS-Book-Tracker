@@ -1,15 +1,15 @@
-package com.example.userapi.Security;
+package com.example.userapi.Model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Getter
-@Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class AuthRequest {
+@Getter
+@Setter
+public class UserResponseDTO {
     private String username;
-    private String password;
+    private String token;
 }

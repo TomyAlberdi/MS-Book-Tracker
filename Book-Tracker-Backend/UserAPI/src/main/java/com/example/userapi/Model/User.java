@@ -1,4 +1,4 @@
-package com.example.userapi.Entity;
+package com.example.userapi.Model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -24,5 +24,10 @@ public class User {
     private String username;
     
     private String password;
+    
+    public User(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
     
 }
