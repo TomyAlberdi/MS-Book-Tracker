@@ -14,14 +14,19 @@ const resources = {
       InvalidPassword: "Invalid password.",
       Login: "Login",
       Logout: "Logout",
-      // Utils
+      // Settings
       Settings: "Settings",
-      Feedback: "Feedback",
-      
-      Search: "Search",
-      NoResultsFound: "No results found",
+      SettingsDescription: "Customize your settings.",
+      DarkMode: "Dark Mode",
       Language: "Language",
       CurrentLanguage: "English",
+      English: "English",
+      Spanish: "Spanish",
+      // Feedback
+      Feedback: "Feedback",
+
+      Search: "Search",
+      NoResultsFound: "No results found",
       Home: "Home",
       ViewMore: "View More",
       Back: "Back",
@@ -52,14 +57,19 @@ const resources = {
       InvalidPassword: "Contraseña inválida.",
       Login: "Iniciar sesión",
       Logout: "Cerrar sesión",
-      // Utils
+      // Settings
       Settings: "Ajustes",
+      SettingsDescription: "Personaliza tus ajustes.",
+      DarkMode: "Modo oscuro",
+      Language: "Idioma",
+      CurrentLanguage: "Español",
+      English: "Inglés",
+      Spanish: "Español",
+      // Feedback
       Feedback: "Comentarios",
 
       Search: "Buscar",
       NoResultsFound: "No se encontraron resultados",
-      Language: "Idioma",
-      CurrentLanguage: "Español",
       Home: "Inicio",
       ViewMore: "Ver Más",
       Back: "Atrás",
