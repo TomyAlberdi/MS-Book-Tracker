@@ -6,9 +6,11 @@ import {
 } from "lucide-react";
 import * as React from "react";
 
+import Feedback from "@/components/Feedback";
 import { NavMain } from "@/components/nav-main";
 import { NavSecondary } from "@/components/nav-secondary";
 import NavUser from "@/components/nav-user";
+import Settings from "@/components/Settings";
 import {
   Sidebar,
   SidebarContent,
@@ -19,8 +21,6 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
 import { useTranslation } from "react-i18next";
-import Feedback from "./Feedback";
-import Settings from "./Settings";
 
 //TODO: implement acording sidebar items
 
