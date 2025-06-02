@@ -5,6 +5,7 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import javax.crypto.SecretKey;
@@ -13,7 +14,8 @@ import java.util.Date;
 @Component
 public class JwtUtil {
     
-    private final String SECRET = System.getenv("SECRET");
+    @Value("${jwt.secret}")
+    private String SECRET;
     // 7 days
     private final long EXPIRATION_TIME = 1000 * 60 * 60 * 24 * 7;
     
