@@ -16,6 +16,8 @@ const resources = {
       Logout: "Logout",
       // Utils
       Settings: "Settings",
+      Feedback: "Feedback",
+      
       Search: "Search",
       NoResultsFound: "No results found",
       Language: "Language",
@@ -52,6 +54,8 @@ const resources = {
       Logout: "Cerrar sesión",
       // Utils
       Settings: "Ajustes",
+      Feedback: "Comentarios",
+
       Search: "Buscar",
       NoResultsFound: "No se encontraron resultados",
       Language: "Idioma",

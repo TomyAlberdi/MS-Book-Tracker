@@ -5,8 +5,7 @@ import {
   BookUser,
   ChevronsUpDown,
   Eraser,
-  PenLine,
-  Settings,
+  PenLine
 } from "lucide-react";
 
 import {
@@ -79,19 +78,13 @@ const NavUser = () => {
                   <PenLine />
                   {t("Register")}
                 </DropdownMenuItem>
+                <DropdownMenuSeparator />
                 <DropdownMenuItem onClick={() => navigate("/login")}>
                   <BookOpenCheck />
                   {t("Login")}
                 </DropdownMenuItem>
               </DropdownMenuGroup>
             )}
-            <DropdownMenuSeparator />
-            <DropdownMenuGroup>
-              <DropdownMenuItem>
-                <Settings />
-                {t("Settings")}
-              </DropdownMenuItem>
-            </DropdownMenuGroup>
             {user && (
               <>
                 <DropdownMenuSeparator />
