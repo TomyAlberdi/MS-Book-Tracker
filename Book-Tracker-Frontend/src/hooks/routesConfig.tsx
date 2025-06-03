@@ -1,10 +1,10 @@
-import BooksMain from "@/app/Pages/Books/BooksMain";
-import WantToRead from "@/app/Pages/Books/WantToRead";
+import BooksMain from "@/app/Pages/BooksMain";
 import Home from "@/app/Pages/Home";
 import NotFound from "@/app/Pages/NotFound";
 import UserDiary from "@/app/Pages/User/UserDiary";
 import UserMain from "@/app/Pages/User/UserMain";
 import UserReviews from "@/app/Pages/User/UserReviews";
+import WantToRead from "@/app/Pages/WantToRead";
 
 export const routesConfig = [
   {
