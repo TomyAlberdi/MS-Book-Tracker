@@ -20,4 +20,5 @@ export const routesConfig = [
   },
   { path: "/user/diary", element: <UserDiary /> },
   { path: "/user/reviews", element: <UserReviews /> },
+  //TODO: Create and route book details component
 ];
