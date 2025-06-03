@@ -1,8 +1,10 @@
 import {
   BookHeart,
+  BookMarked,
+  BookUser,
+  LibraryBig,
   Send,
   Settings as Settings2,
-  SquareTerminal
 } from "lucide-react";
 import * as React from "react";
 
@@ -22,30 +24,34 @@ import {
 } from "@/components/ui/sidebar";
 import { useTranslation } from "react-i18next";
 
-//TODO: implement acording sidebar items
-
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const { t } = useTranslation();
 
   const data = {
     navMain: [
       {
-        title: "Playground",
-        url: "#",
-        icon: SquareTerminal,
+        title: "Books",
+        url: "/books",
+        icon: LibraryBig,
+      },
+      {
+        title: "Want to Read",
+        url: "/books/want-to-read",
+        icon: BookMarked,
+      },
+      {
+        title: "Profile",
+        url: "/user",
+        icon: BookUser,
         isActive: true,
         items: [
           {
-            title: "History",
-            url: "#",
+            title: "Diary",
+            url: "/user/diary",
           },
           {
-            title: "Starred",
-            url: "#",
-          },
-          {
-            title: "Settings",
-            url: "#",
+            title: "Reviews",
+            url: "/user/reviews",
           },
         ],
       },
