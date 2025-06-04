@@ -1,5 +1,6 @@
 import App from "@/App.tsx";
 import { ThemeProvider } from "@/components/theme-provider";
+import BookContextComponent from "@/context/BookContextComponent";
 import UserContextComponent from "@/context/UserContextComponent";
 import "@/i18n";
 import "@/index.css";
@@ -13,7 +14,9 @@ createRoot(document.getElementById("root")!).render(
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
       <BrowserRouter>
         <UserContextComponent>
-          <App />
+          <BookContextComponent>
+            <App />
+          </BookContextComponent>
         </UserContextComponent>
       </BrowserRouter>
     </ThemeProvider>

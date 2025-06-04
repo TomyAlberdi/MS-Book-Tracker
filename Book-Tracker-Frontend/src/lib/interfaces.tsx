@@ -13,16 +13,22 @@ export interface PartialBook {
   volumeInfo: {
     title: string;
     authors: string[];
-    publishedDate: string;
     imageLinks: {
       smallThumbnail: string;
       thumbnail: string;
-    }
-    language: string;
-  }
+    };
+  };
 }
 
 export interface CompleteBook extends PartialBook {
+  publishedDate: string;
   pageCount: number;
   maturityRating: string;
+  publisher: string;
+  language: string;
+}
+
+export interface Response {
+  loading: boolean;
+  data: PartialBook[] | CompleteBook | null;
 }
