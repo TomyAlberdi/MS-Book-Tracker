@@ -9,6 +9,12 @@ interface BookContextComponentProps {
 const BookContextComponent: React.FC<BookContextComponentProps> = ({
   children,
 }) => {
+
+  const BASE_URL = import.meta.env.VITE_GOOGLE_BASE_URL;
+  const API_KEY = import.meta.env.VITE_GOOGLE_API_KEY;
+  const paginatedSearchFields = "items(id,volumeInfo(title,authors,publishedDate,publisher,imageLinks,language))"
+  const detailedSearchFields = "volumeInfo(title,authors,publisher,publishedDate,description,pageCount,categories,maturityRating,imageLinks,language)"
+
   //TODO: Implement paginated books search
   const getBooks = (
     maxResults: number,
