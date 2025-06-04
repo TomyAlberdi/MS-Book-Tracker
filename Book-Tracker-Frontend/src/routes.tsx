@@ -1,7 +1,7 @@
 import Page from "@/app/dashboard/page";
 import Login from "@/components/Auth/Login";
 import Register from "@/components/Auth/Register";
-import { routesConfig } from "@/hooks/routesConfig";
+import { routesConfig } from "@/lib/routesConfig";
 import { useRoutes } from "react-router-dom";
 
 const CustomRouter = () => {
