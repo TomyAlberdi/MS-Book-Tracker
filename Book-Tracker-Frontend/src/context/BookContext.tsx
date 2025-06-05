@@ -1,13 +1,13 @@
-import type { Response } from "@/lib/interfaces";
+import type { CompleteBook, PartialBook } from "@/lib/interfaces";
 import { createContext } from "react";
 
 export interface BookContextType {
   getBooks: (
-    maxResults: number,
-    startIndex: number,
+    maxResults: string,
+    startIndex: string,
     searchTerms: string
-  ) => Response;
-  getBook: (id: string) => Response;
+  ) => Promise<PartialBook[] | null>;
+  getBook: (id: string) => Promise<CompleteBook | null>;
 }
 
 export const BookContext = createContext<BookContextType | null>(null);

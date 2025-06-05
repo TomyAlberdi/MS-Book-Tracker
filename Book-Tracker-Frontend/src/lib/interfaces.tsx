@@ -27,8 +27,3 @@ export interface CompleteBook extends PartialBook {
   publisher: string;
   language: string;
 }
-
-export interface Response {
-  loading: boolean;
-  data: PartialBook[] | CompleteBook | null;
-}
