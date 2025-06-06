@@ -1,6 +1,6 @@
 const BooksPagination = () => {
   return (
-    <div>BooksPagination</div>
+    <div className="border border-red-500">BooksPagination</div>
   )
 }
 export default BooksPagination

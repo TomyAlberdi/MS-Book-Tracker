@@ -1,6 +1,6 @@
 const BooksHeader = () => {
   return (
-    <div>BooksHeader</div>
+    <div className="border border-red-500">BooksHeader</div>
   )
 }
 export default BooksHeader
