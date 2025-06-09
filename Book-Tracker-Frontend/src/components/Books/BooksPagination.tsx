@@ -84,7 +84,7 @@ const BooksPagination = ({
   };
 
   return (
-    <div className="flex justify-center items-center md:mb-2 mb-0 mt-2">
+    <div className="flex justify-center items-center my-2">
       <Pagination>
         <PaginationContent>
           <PaginationItem onClick={handlePreviousPage}>

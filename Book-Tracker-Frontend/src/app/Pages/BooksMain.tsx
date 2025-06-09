@@ -1,5 +1,3 @@
-// TODO: Implement books search + filters
-
 import BooksHeader from "@/components/Books/BooksHeader";
 import BooksList from "@/components/Books/BooksList";
 import BooksPagination from "@/components/Books/BooksPagination";
@@ -26,15 +24,13 @@ const BooksMain = () => {
   return (
     <div className="flex flex-col h-full">
       <h1 className="text-2xl font-bold">{t("SearchBooks")}</h1>
-      <div className="w-full h-full flex flex-col">
-        <BooksHeader setSearchQuery={setSearchQuery} />
-        <BooksList />
-        <BooksPagination
-          currentPage={currentPage}
-          setCurrentPage={setCurrentPage}
-          limit={LIMIT}
-        />
-      </div>
+      <BooksHeader setSearchQuery={setSearchQuery} />
+      <BooksList />
+      <BooksPagination
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+        limit={LIMIT}
+      />
     </div>
   );
 };
