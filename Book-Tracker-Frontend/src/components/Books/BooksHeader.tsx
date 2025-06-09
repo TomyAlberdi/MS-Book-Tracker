@@ -25,7 +25,7 @@ const BooksHeader = ({ setSearchQuery }: BooksHeaderProps) => {
   return (
     <div className="py-2 flex gap-2 items-center">
       <Input
-        className="w-1/3"
+        className="w-full md:w-1/3"
         placeholder={t("TypeSearchQuery")}
         onChange={(e) => setLocalSearchQuery(e.target.value)}
         value={LocalSearchQuery}
