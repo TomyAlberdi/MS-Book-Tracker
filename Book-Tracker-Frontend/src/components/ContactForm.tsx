@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
@@ -13,7 +14,6 @@ import { useRef } from "react";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { z } from "zod";
-import { Button } from "./ui/button";
 
 const FormSchema = z.object({
   email: z.string().email(),
