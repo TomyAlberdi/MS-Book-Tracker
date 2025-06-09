@@ -41,7 +41,9 @@ const resources = {
       // Book Search
       SearchBooks: "Search Books",
       TypeSearchQuery: "Type Search Query",
+      SearchEmpty: "Search cannot be empty.",
       FailedSearchQuery: "Something went wrong while searching.",
+      Pages: "Pages",
     },
   },
   es: {
@@ -83,7 +85,9 @@ const resources = {
       // Book Search
       SearchBooks: "Buscar libros",
       TypeSearchQuery: "Escriba la consulta de búsqueda",
+      SearchEmpty: "La búsqueda no puede estar vacía.",
       FailedSearchQuery: "Algo salió mal en la búsqueda.",
+      Pages: "Páginas",
     },
   },
 };
