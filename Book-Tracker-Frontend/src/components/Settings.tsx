@@ -1,11 +1,6 @@
 import { useTheme } from "@/components/theme-provider";
 import { Button } from "@/components/ui/button";
 import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/components/ui/collapsible";
-import {
   DialogDescription,
   DialogHeader,
   DialogTitle,
@@ -15,12 +10,13 @@ import { Switch } from "@/components/ui/switch";
 import { ChevronsUpDown } from "lucide-react";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "./ui/dropdown-menu";
 
 const Settings = () => {
   const { t, i18n } = useTranslation();
   const { setTheme, theme } = useTheme();
 
-  const [collapsibleOpen, setCollapsibleOpen] = useState(false);
+  const [open, setOpen] = useState(false);
 
   const toggleDarkMode = () => {
     setTheme(theme === "dark" ? "light" : "dark");
@@ -49,28 +45,22 @@ const Settings = () => {
         </div>
         <div className="flex flex-col gap-6">
           <Label className="text-md">{t("Language")}</Label>
-          <Collapsible open={collapsibleOpen} onOpenChange={setCollapsibleOpen}>
-            <CollapsibleTrigger asChild>
+          <DropdownMenu open={open} onOpenChange={setOpen}>
+            <DropdownMenuTrigger asChild>
               <Button className="w-full">
                 <span className="text-md">{t("CurrentLanguage")}</span>
                 <ChevronsUpDown />
               </Button>
-            </CollapsibleTrigger>
-            <CollapsibleContent className="flex flex-col gap-2 mt-2">
-              <div
-                className="rounded-md border px-4 py-2 font-mono text-sm cursor-pointer"
-                onClick={() => toggleLanguage("en")}
-              >
+            </DropdownMenuTrigger>
+            <DropdownMenuContent>
+              <DropdownMenuItem onSelect={() => toggleLanguage("en")}>
                 {t("English")}
-              </div>
-              <div
-                className="rounded-md border px-4 py-2 font-mono text-sm cursor-pointer"
-                onClick={() => toggleLanguage("es")}
-              >
+              </DropdownMenuItem>
+              <DropdownMenuItem onSelect={() => toggleLanguage("es")}>
                 {t("Spanish")}
-              </div>
-            </CollapsibleContent>
-          </Collapsible>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
       </section>
     </>
