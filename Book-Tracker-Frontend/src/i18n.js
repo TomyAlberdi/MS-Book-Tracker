@@ -14,6 +14,14 @@ const resources = {
       InvalidPassword: "Invalid password.",
       Login: "Login",
       Logout: "Logout",
+      RegisteringUser: "Registering user...",
+      RegisteredSuccessfully: "Registered successfully.",
+      AlreadyLoggedIn: "You are already logged in.",
+      LoggingIn: "Logging in...",
+      FailedAuthentication: "Something went wrong while authenticating: ",
+      LoginSuccessful: "Logged in successfully.",
+      NotLoggedIn: "You are not logged in.",
+      LoggedOutSuccessfully: "Logged out successfully.",
       // Settings
       Settings: "Settings",
       SettingsDescription: "Customize your settings.",
@@ -30,6 +38,10 @@ const resources = {
       SendFeedback: "Send Feedback",
       SendingFeedback: "Sending feedback...",
       FeedbackSent: "Feedback sent successfully.",
+      // Book Search
+      SearchBooks: "Search Books",
+      TypeSearchQuery: "Type Search Query",
+      FailedSearchQuery: "Something went wrong while searching.",
     },
   },
   es: {
@@ -44,6 +56,14 @@ const resources = {
       InvalidPassword: "Contraseña inválida.",
       Login: "Iniciar sesión",
       Logout: "Cerrar sesión",
+      RegisteringUser: "Registrando usuario...",
+      RegisteredSuccessfully: "Registrado exitosamente.",
+      AlreadyLoggedIn: "Ya has iniciado sesión.",
+      LoggingIn: "Iniciando sesión...",
+      FailedAuthentication: "Algo salió mal con la autenticación: ",
+      LoginSuccessful: "Iniciado sesión exitosamente.",
+      NotLoggedIn: "No se ha iniciado sesión.",
+      LoggedOutSuccessfully: "Sesión cerrada exitosamente.",
       // Settings
       Settings: "Ajustes",
       SettingsDescription: "Personaliza tus ajustes.",
@@ -60,6 +80,10 @@ const resources = {
       SendFeedback: "Enviar Comentarios",
       SendingFeedback: "Enviando comentarios...",
       FeedbackSent: "Comentarios enviados con éxito.",
+      // Book Search
+      SearchBooks: "Buscar libros",
+      TypeSearchQuery: "Escriba la consulta de búsqueda",
+      FailedSearchQuery: "Algo salió mal en la búsqueda.",
     },
   },
 };
