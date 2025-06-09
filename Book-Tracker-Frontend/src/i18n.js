@@ -44,6 +44,7 @@ const resources = {
       SearchEmpty: "Search cannot be empty.",
       FailedSearchQuery: "Something went wrong while searching.",
       Pages: "Pages",
+      NoBooksFound: "No books found.",
     },
   },
   es: {
@@ -66,6 +67,8 @@ const resources = {
       LoginSuccessful: "Iniciado sesión exitosamente.",
       NotLoggedIn: "No se ha iniciado sesión.",
       LoggedOutSuccessfully: "Sesión cerrada exitosamente.",
+      Previous: "Anterior",
+      Next: "Siguiente",
       // Settings
       Settings: "Ajustes",
       SettingsDescription: "Personaliza tus ajustes.",
@@ -88,6 +91,9 @@ const resources = {
       SearchEmpty: "La búsqueda no puede estar vacía.",
       FailedSearchQuery: "Algo salió mal en la búsqueda.",
       Pages: "Páginas",
+      NoBooksFound: "No se encontraron libros.",
+      Previous: "Anterior",
+      Next: "Siguiente",
     },
   },
 };
