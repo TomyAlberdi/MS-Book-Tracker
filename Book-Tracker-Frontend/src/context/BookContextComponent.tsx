@@ -19,7 +19,6 @@ const BookContextComponent: React.FC<BookContextComponentProps> = ({
   const PAGINATED_BOOKS_FIELDS =
     "title,key,author_key,author_name,first_publish_year";
   //TODO: research book cover request
-  //TODO: Create context type functions (use Obsidian vault data)
 
   const [paginatedBooks, setPaginatedBooks] = useState<
     PaginatedSearchResult<PartialWork>
