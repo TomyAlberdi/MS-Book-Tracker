@@ -4,7 +4,6 @@ import {
   BreadcrumbItem,
   BreadcrumbList,
 } from "@/components/ui/breadcrumb"
-import { ScrollArea } from "@/components/ui/scroll-area"
 import { Separator } from "@/components/ui/separator"
 import {
   SidebarInset,
@@ -35,9 +34,9 @@ export default function Page() {
             </Breadcrumb>
           </div>
         </header>
-        <ScrollArea className="pageBody overflow-x-hidden pb-4 px-4">
+        <div className="pageBody overflow-x-hidden pb-4 px-4">
           <Outlet />
-        </ScrollArea>
+        </div>
       </SidebarInset>
     </SidebarProvider>
   )
