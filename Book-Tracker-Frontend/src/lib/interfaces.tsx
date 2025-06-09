@@ -14,39 +14,19 @@ export interface UserWithCredentials {
 
 //TODO: Create work and edition interfaces (partial and complete)
 export interface PartialWork {
-  author_key: string;
-  author_name: string;
-  cover_edition_key: string;
-  edition_count: number;
-  first_publish_year: number;
   key: string;
+  cover_edition_key: string;
   title: string;
-}
-
-export interface CompleteWork {
-  title: string;
-  authors: [
-    author: {
-      key: string;
-    },
-    type: {
-      key: string;
-    }
-  ],
-  type: {
-    key: string;
-  },
-  covers: number[],
-  description: string,
-  subjects: string[],
 }
 
 export interface Edition {
-  title: string;
-  publishers: string[];
-  publish_date: string;
   key: string;
-  covers: number[];
+  title?: string;
+  language?: { key: string }[];
+  ebook_access?: string;
+  cover_i?: number;
+  ocaid?: string;
+  //TODO: Add rest of relevent fields
 }
 
 // Search Authors
