@@ -34,7 +34,7 @@ export default function Page() {
             </Breadcrumb>
           </div>
         </header>
-        <div className="pageBody overflow-x-hidden pb-4 px-4">
+        <div className="pageBody overflow-x-hidden px-4">
           <Outlet />
         </div>
       </SidebarInset>
