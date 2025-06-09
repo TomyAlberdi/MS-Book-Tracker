@@ -24,7 +24,7 @@ const BookContextComponent: React.FC<BookContextComponentProps> = ({
   const [paginatedBooks, setPaginatedBooks] = useState<
     PaginatedSearchResult<PartialWork>
   >({
-    loading: false,
+    loading: true,
     data: null,
   });
 

@@ -17,7 +17,9 @@ const BooksMain = () => {
   const LIMIT = 12;
 
   useEffect(() => {
-    searchBooks(searchQuery, currentPage, LIMIT);
+    if (searchQuery) {
+      searchBooks(searchQuery, currentPage, LIMIT);
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentPage, searchQuery]);
 
