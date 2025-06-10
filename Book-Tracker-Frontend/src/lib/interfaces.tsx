@@ -19,16 +19,20 @@ export interface PartialWork {
 }
 
 export interface Edition {
+  publishers?: string[];
+  series?: string[];
+  covers?: string[];
   key: string;
+  authors?: { key: string }[];
   title?: string;
-  language?: { key: string }[];
+  number_of_pages?: number;
+  languages?: { key: string }[];
   ebook_access?: string;
-  cover_i?: number;
   ocaid?: string;
-  
+  publish_date?: string;
 }
 
-// Search Authors
+// AUTHORS INTERFACES
 //TODO: Create author interfaces (partial and complete)
 
 // UTILS

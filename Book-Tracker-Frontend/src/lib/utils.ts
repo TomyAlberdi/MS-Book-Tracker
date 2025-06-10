@@ -12,9 +12,9 @@ export const loadUserFromStorage = (): User | null => {
 };
 
 export function scoreEdition(edition: Edition): number {
-  const lang = edition.language?.[0]?.key ?? "";
+  const lang = edition.languages?.[0]?.key ?? "";
   const ebook = edition.ebook_access;
-  const hasCover = edition.cover_i !== undefined;
+  const hasCover = edition.covers !== undefined;
   const hasOcaid = !!edition.ocaid;
 
   return (
