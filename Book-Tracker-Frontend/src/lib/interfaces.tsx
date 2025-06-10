@@ -12,7 +12,6 @@ export interface UserWithCredentials {
 
 // BOOKS INTERFACES
 
-//TODO: Create work and edition interfaces (partial and complete)
 export interface PartialWork {
   key: string;
   cover_edition_key: string;
@@ -26,7 +25,7 @@ export interface Edition {
   ebook_access?: string;
   cover_i?: number;
   ocaid?: string;
-  //TODO: Add rest of relevent fields
+  
 }
 
 // Search Authors
