@@ -1,3 +1,4 @@
+import BookCard from "@/components/Books/BookCard";
 import { Alert, AlertTitle } from "@/components/ui/alert";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useBookContext } from "@/context/UseBookContext";
@@ -26,7 +27,20 @@ const BooksList = () => {
     return (
       <div className={listClasses}>
         {Array.from({ length: 9 }, (_, i) => (
-          <Skeleton key={i} className="aspect-video w-full mb-4 md:w-[32.325%] md:mb-[1.5%]" />  
+          <Skeleton
+            key={i}
+            className="aspect-video w-full mb-4 md:w-[32.325%] md:mb-[1.5%]"
+          />
+        ))}
+      </div>
+    );
+  }
+
+  if (!paginatedBooks.loading && paginatedBooks.data !== null) {
+    return (
+      <div className="listClasses">
+        {paginatedBooks.data.docs.map((work) => (
+          <BookCard work={work} key={work.key} />
         ))}
       </div>
     );

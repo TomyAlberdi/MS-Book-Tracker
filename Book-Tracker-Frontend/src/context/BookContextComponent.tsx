@@ -23,7 +23,7 @@ const BookContextComponent: React.FC<BookContextComponentProps> = ({
   const [paginatedBooks, setPaginatedBooks] = useState<
     PaginatedSearchResult<PartialWork>
   >({
-    loading: true,
+    loading: false,
     data: null,
   });
 
@@ -52,15 +52,14 @@ const BookContextComponent: React.FC<BookContextComponentProps> = ({
         console.log(responseData);
       }
       setPaginatedBooks({
-        ...paginatedBooks,
         data: responseData,
+        loading: false,
       });
     } catch (error) {
       toast.error(t("FailedSearchQuery"));
       console.error(error);
-    } finally {
       setPaginatedBooks({
-        ...paginatedBooks,
+        data: null,
         loading: false,
       });
     }
