@@ -83,6 +83,20 @@ const BooksPagination = ({
     setCurrentPage(page);
   };
 
+  const getVisiblePages = () => {
+    const visiblePages = 11;
+    let start = Math.max(1, currentPage - Math.floor(visiblePages / 2));
+    let end = start + visiblePages - 1;
+    const totalPages = calculateTotalPages();
+
+    if (end > totalPages) {
+      end = totalPages;
+      start = Math.max(1, end - visiblePages + 1);
+    }
+
+    return Array.from({ length: end - start + 1 }, (_, i) => start + i);
+  };
+
   return (
     <div className="flex justify-center items-center my-2">
       <Pagination>
@@ -90,11 +104,6 @@ const BooksPagination = ({
           <PaginationItem onClick={handlePreviousPage}>
             <PaginationPrevious />
           </PaginationItem>
-          {!paginationInfo.first && (
-            <PaginationItem onClick={() => handleGoToPage(currentPage - 1)}>
-              <PaginationLink>{currentPage - 1}</PaginationLink>
-            </PaginationItem>
-          )}
           <PaginationItem>
             <DropdownMenu
               open={paginationDropdownOpen}
@@ -104,26 +113,21 @@ const BooksPagination = ({
                 <PaginationLink>{currentPage}</PaginationLink>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="center" className="inset-x-1/4">
-                <DropdownMenuLabel className="text-center">{t("Pages")}</DropdownMenuLabel>
-                {Array.from({ length: paginationInfo.totalAmount }, (_, i) => {
-                  return (
-                    <DropdownMenuItem
-                      key={i + 1}
-                      onClick={() => handleGoToPage(i + 1)}
-                      className="flex items-center justify-center"
-                    >
-                      {i + 1}
-                    </DropdownMenuItem>
-                  );
-                })}
+                <DropdownMenuLabel className="text-center">
+                  {t("Pages")}
+                </DropdownMenuLabel>
+                {getVisiblePages().map((pageNum) => (
+                  <DropdownMenuItem
+                    key={pageNum}
+                    onClick={() => handleGoToPage(pageNum)}
+                    className="flex items-center justify-center"
+                  >
+                    {pageNum}
+                  </DropdownMenuItem>
+                ))}
               </DropdownMenuContent>
             </DropdownMenu>
           </PaginationItem>
-          {!paginationInfo.last && (
-            <PaginationItem onClick={() => handleGoToPage(currentPage + 1)}>
-              <PaginationLink>{currentPage + 1}</PaginationLink>
-            </PaginationItem>
-          )}
           <PaginationItem onClick={handleNextPage}>
             <PaginationNext />
           </PaginationItem>
