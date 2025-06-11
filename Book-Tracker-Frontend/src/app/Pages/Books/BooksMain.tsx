@@ -5,7 +5,6 @@ import { useBookContext } from "@/context/UseBookContext";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 
-// TODO: Create book card component
 const BooksMain = () => {
   const { t } = useTranslation();
   const { searchBooks } = useBookContext();
