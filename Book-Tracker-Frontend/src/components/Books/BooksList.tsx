@@ -10,7 +10,7 @@ const BooksList = () => {
   const { paginatedBooks } = useBookContext();
 
   const listClasses =
-    "h-auto min-h-[80vh] flex items-center justify-start flex-wrap gap-[1.5%] mt-2";
+    "h-auto min-h-[80vh] grid grid-cols-1 md:grid-cols-3 gap-4 mt-2"; 
 
   if (!paginatedBooks.loading && paginatedBooks.data === null) {
     return (
@@ -29,7 +29,7 @@ const BooksList = () => {
         {Array.from({ length: 9 }, (_, i) => (
           <Skeleton
             key={i}
-            className="aspect-video w-full mb-4 md:w-[32.325%] md:mb-[1.5%]"
+            className="aspect-video w-full"
           />
         ))}
       </div>

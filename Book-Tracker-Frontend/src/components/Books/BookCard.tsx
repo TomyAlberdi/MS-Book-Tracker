@@ -8,7 +8,7 @@ interface BookCardProps {
 //TODO: call getBestEditionForWork with work.key
 const BookCard = ({ work }: BookCardProps) => {
   return (
-    <Card className="aspect-video w-full mb-4 md:w-[32.325%] md:mb-[1.5%]">
+    <Card className="aspect-video w-full">
       {work?.title}
     </Card>
   )
