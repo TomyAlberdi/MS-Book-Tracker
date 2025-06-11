@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Search } from "lucide-react";
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { toast } from "sonner";
 
@@ -14,13 +14,26 @@ const BooksHeader = ({ setSearchQuery }: BooksHeaderProps) => {
 
   const [LocalSearchQuery, setLocalSearchQuery] = useState("");
 
-  const handleSearch = () => {
+  const handleSearch = useCallback(() => {
     if (LocalSearchQuery === "") {
       toast.error(t("SearchEmpty"));
       return;
     }
     setSearchQuery(LocalSearchQuery);
-  };
+  }, [LocalSearchQuery, setSearchQuery, t]);
+
+  useEffect(() => {
+    const handleEnter = (e: KeyboardEvent) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        handleSearch();
+      }
+    };
+    document.addEventListener("keydown", handleEnter);
+    return () => {
+      document.removeEventListener("keydown", handleEnter);
+    };
+  }, [handleSearch]);
 
   return (
     <div className="py-2 flex gap-2 items-center">
