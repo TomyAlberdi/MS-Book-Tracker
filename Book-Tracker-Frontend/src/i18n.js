@@ -24,6 +24,7 @@ const resources = {
       LoggedOutSuccessfully: "Logged out successfully.",
       // Sidebar
       Books: "Books",
+      Reading: "Reading",
       WantToRead: "Want to Read",
       Profile: "Profile",
       Diary: "Diary",
@@ -77,6 +78,7 @@ const resources = {
       LoggedOutSuccessfully: "Sesión cerrada exitosamente.",
       // Sidebar
       Books: "Libros",
+      Reading: "Leyendo",
       WantToRead: "Por leer",
       Profile: "Perfil",
       Diary: "Diario",

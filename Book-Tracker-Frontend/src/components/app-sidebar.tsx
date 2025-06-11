@@ -1,10 +1,9 @@
 import {
   BookHeart,
-  BookMarked,
   BookUser,
   LibraryBig,
   Send,
-  Settings as Settings2,
+  Settings as Settings2
 } from "lucide-react";
 import * as React from "react";
 
@@ -34,11 +33,17 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         title: t("Books"),
         url: "/books",
         icon: LibraryBig,
-      },
-      {
-        title: t("WantToRead"),
-        url: "/books/want-to-read",
-        icon: BookMarked,
+        isActive: true,
+        items: [
+          {
+            title: t("Reading"),
+            url: "/books/reading",
+          },
+          {
+            title: t("WantToRead"),
+            url: "/books/want-to-read",
+          },
+        ],
       },
       {
         title: t("Profile"),

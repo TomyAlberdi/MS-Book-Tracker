@@ -1,10 +1,11 @@
-import BooksMain from "@/app/Pages/BooksMain";
+import BooksMain from "@/app/Pages/Books/BooksMain";
+import BooksReading from "@/app/Pages/Books/BooksReading";
+import WantToRead from "@/app/Pages/Books/WantToRead";
 import Home from "@/app/Pages/Home";
 import NotFound from "@/app/Pages/NotFound";
 import UserDiary from "@/app/Pages/User/UserDiary";
 import UserMain from "@/app/Pages/User/UserMain";
 import UserReviews from "@/app/Pages/User/UserReviews";
-import WantToRead from "@/app/Pages/WantToRead";
 
 export const routesConfig = [
   {
@@ -13,6 +14,7 @@ export const routesConfig = [
   },
   { index: true, element: <Home /> },
   { path: "/books", element: <BooksMain /> },
+  { path: "/books/reading", element: <BooksReading /> },
   { path: "/books/want-to-read", element: <WantToRead /> },
   {
     path: "/user",
