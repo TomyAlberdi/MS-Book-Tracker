@@ -26,11 +26,7 @@ const BookContextComponent: React.FC<BookContextComponentProps> = ({
     loading: false,
     data: null,
   });
-
-  //TODO: Refine logic: fetch works with this function, show names on loading skeleton cards
-  // Each card calls getBestEditionForWork with the key to get the rest of the info
-  // (same with future complete edition page component)
-  // Default to calling cover_edition_key
+  
   const searchBooks = async (query: string, page: number, limit: number) => {
     setPaginatedBooks({
       loading: true,
