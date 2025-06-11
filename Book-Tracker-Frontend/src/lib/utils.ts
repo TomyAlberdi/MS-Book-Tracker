@@ -13,19 +13,13 @@ export const loadUserFromStorage = (): User | null => {
 
 export function scoreEdition(edition: Edition): number {
   const lang = edition.languages?.[0]?.key ?? "";
-  const ebook = edition.ebook_access;
+  //const ebook = edition.ebook_access;
   const hasCover = edition.covers !== undefined;
   const hasOcaid = !!edition.ocaid;
 
   return (
     (lang.includes("eng") ? 40 : 0) +
-    (ebook === "public"
-      ? 10
-      : ebook === "borrowable"
-      ? 8
-      : ebook === "printdisabled"
-      ? 2
-      : 0) +
+    //(ebook === "public" ? 10 : ebook === "borrowable" ? 8 : ebook === "printdisabled" ? 2: 0) +
     (hasCover ? 2 : 0) +
     (hasOcaid ? 1 : 0)
   );
