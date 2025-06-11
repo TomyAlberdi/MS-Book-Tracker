@@ -5,6 +5,9 @@ export interface BookContextType {
   paginatedBooks: PaginatedSearchResult<PartialWork>;
   searchBooks: (query: string, page: number, limit: number) => void;
   getBestEditionForWork: (workKey: string) => Promise<Edition | null>;
+  getBookCover: (coverCode: string) => Promise<string | null>;
+  getAuthor: (authorKey: string) => Promise<string | null>;
+  getAuthors: (authorsCodes: { key: string }[]) => Promise<string | null>;
 }
 
 export const BookContext = createContext<BookContextType | null>(null);

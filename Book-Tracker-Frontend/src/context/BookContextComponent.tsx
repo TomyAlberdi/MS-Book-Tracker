@@ -1,6 +1,9 @@
 import type { BookContextType } from "@/context/BookContext";
 import { BookContext } from "@/context/BookContext";
-import type { PaginatedSearchResult, PartialWork } from "@/lib/interfaces";
+import type {
+  PaginatedSearchResult,
+  PartialWork,
+} from "@/lib/interfaces";
 import { sortEditionsByPriority } from "@/lib/utils";
 import { useState, type ReactNode } from "react";
 import { useTranslation } from "react-i18next";
@@ -17,8 +20,7 @@ const BookContextComponent: React.FC<BookContextComponentProps> = ({
 
   const BASE_URL = import.meta.env.VITE_BOOKS_BASE_URL;
   const PAGINATED_BOOKS_FIELDS = "key,cover_edition_key,title";
-  //TODO: research book cover request
-  const IMAGES_URL = import.meta.env.VITE_BOOKS_IMAGES_URL;
+  //const IMAGES_URL = import.meta.env.VITE_BOOKS_IMAGES_URL;
 
   const [paginatedBooks, setPaginatedBooks] = useState<
     PaginatedSearchResult<PartialWork>
@@ -26,7 +28,7 @@ const BookContextComponent: React.FC<BookContextComponentProps> = ({
     loading: false,
     data: null,
   });
-  
+
   const searchBooks = async (query: string, page: number, limit: number) => {
     setPaginatedBooks({
       loading: true,
@@ -80,10 +82,45 @@ const BookContextComponent: React.FC<BookContextComponentProps> = ({
     }
   };
 
+  //TODO: Implement get book cover request
+  const getBookCover = async (coverCode: string) => {
+    return null;
+  };
+
+  const getAuthor = async (authorKey: string) => {
+    console.log(authorKey)
+    try {
+      const url = `${BASE_URL}${authorKey}.json`;
+      const res = await fetch(url);
+      if (!res.ok) {
+        console.warn("No authors found for author:", authorKey);
+        return null;
+      }
+      const data = await res.json();
+      return data.name;
+    } catch (err) {
+      console.error("Failed to fetch authors", err);
+      return null;
+    }
+  };
+
+  const getAuthors = async (authorsCode: { key: string }[]) => {
+    const authors = await Promise.all(
+      authorsCode.map(async (author) => {
+        const authorData = await getAuthor(author.key);
+        return authorData;
+      })
+    );
+    return authors.join(" and ");
+  };
+
   const exportData: BookContextType = {
     paginatedBooks,
     searchBooks,
     getBestEditionForWork,
+    getBookCover,
+    getAuthor,
+    getAuthors,
   };
 
   return (
