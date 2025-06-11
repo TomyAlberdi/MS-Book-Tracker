@@ -54,6 +54,7 @@ const resources = {
       NoBooksFound: "No books found.",
       Previous: "Previous",
       Next: "Next",
+      BookCardError: "An error occurred while loading this book.",
     },
   },
   es: {
@@ -108,6 +109,7 @@ const resources = {
       NoBooksFound: "No se encontraron libros.",
       Previous: "Anterior",
       Next: "Siguiente",
+      BookCardError: "Se produjo un error al cargar este libro.",
     },
   },
 };

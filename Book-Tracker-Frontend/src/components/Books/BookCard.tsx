@@ -1,16 +1,31 @@
 import { Card } from "@/components/ui/card";
-import type { PartialWork } from "@/lib/interfaces";
+import { Skeleton } from "@/components/ui/skeleton";
+import { useBookContext } from "@/context/UseBookContext";
+import type { Edition, PartialWork } from "@/lib/interfaces";
+import { useEffect, useState } from "react";
 
 interface BookCardProps {
   work: PartialWork;
 }
 
-//TODO: call getBestEditionForWork with work.key
 const BookCard = ({ work }: BookCardProps) => {
-  return (
-    <Card className="aspect-video w-full">
-      {work?.title}
-    </Card>
-  )
-}
-export default BookCard
+  const { getBestEditionForWork } = useBookContext();
+
+  const [Edition, setEdition] = useState<Edition | null>(null);
+
+  useEffect(() => {
+    const fetchEdition = async () => {
+      const edition = await getBestEditionForWork(work.key);
+      setEdition(edition);
+    };
+    fetchEdition();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [work.key]);
+
+  if (!Edition) {
+    return <Skeleton className="aspect-video w-full" />;
+  }
+
+  return <Card className="aspect-video w-full"></Card>;
+};
+export default BookCard;

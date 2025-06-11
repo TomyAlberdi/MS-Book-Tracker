@@ -20,16 +20,57 @@ export interface PartialWork {
 
 export interface Edition {
   publishers?: string[];
+  identifiers?: {
+    goodreads?: string[];
+    librarything?: string[];
+  };
   series?: string[];
-  covers?: string[];
-  key: string;
-  authors?: { key: string }[];
+  pagination?: string;
+  covers?: number[];
+  local_id?: string[];
+  url?: string[];
+  key?: string;
+  authors?: {
+    key?: string;
+  }[];
+  publish_places?: string[];
+  subjects?: string[];
+  uri_descriptions?: string[];
+  edition_name?: string;
+  genres?: string[];
+  source_records?: string[];
   title?: string;
+  notes?: string;
   number_of_pages?: number;
-  languages?: { key: string }[];
-  ebook_access?: string;
-  ocaid?: string;
+  languages?: {
+    key?: string;
+  }[];
   publish_date?: string;
+  publish_country?: string;
+  by_statement?: string;
+  works?: {
+    key?: string;
+  }[];
+  type?: {
+    key?: string;
+  };
+  uris?: string[];
+  subtitle?: string;
+  ocaid?: string;
+  isbn_10?: string[];
+  lccn?: string[];
+  dewey_decimal_class?: string[];
+  lc_classifications?: string[];
+  latest_revision?: number;
+  revision?: number;
+  created?: {
+    type?: string;
+    value?: string;
+  };
+  last_modified?: {
+    type?: string;
+    value?: string;
+  };
 }
 
 // AUTHORS INTERFACES

@@ -63,7 +63,7 @@ const BookContextComponent: React.FC<BookContextComponentProps> = ({
 
   const getBestEditionForWork = async (workKey: string) => {
     try {
-      const url = `${BASE_URL}/works/${workKey}/editions.json?limit=100`;
+      const url = `${BASE_URL}${workKey}/editions.json?limit=100`;
       const res = await fetch(url);
       const data = await res.json();
 
