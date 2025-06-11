@@ -31,27 +31,27 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const data = {
     navMain: [
       {
-        title: "Books",
+        title: t("Books"),
         url: "/books",
         icon: LibraryBig,
       },
       {
-        title: "Want to Read",
+        title: t("WantToRead"),
         url: "/books/want-to-read",
         icon: BookMarked,
       },
       {
-        title: "Profile",
+        title: t("Profile"),
         url: "/user",
         icon: BookUser,
         isActive: true,
         items: [
           {
-            title: "Diary",
+            title: t("Diary"),
             url: "/user/diary",
           },
           {
-            title: "Reviews",
+            title: t("Reviews"),
             url: "/user/reviews",
           },
         ],

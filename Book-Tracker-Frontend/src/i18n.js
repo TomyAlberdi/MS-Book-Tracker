@@ -22,6 +22,12 @@ const resources = {
       LoginSuccessful: "Logged in successfully.",
       NotLoggedIn: "You are not logged in.",
       LoggedOutSuccessfully: "Logged out successfully.",
+      // Sidebar
+      Books: "Books",
+      WantToRead: "Want to Read",
+      Profile: "Profile",
+      Diary: "Diary",
+      Reviews: "Reviews",
       // Settings
       Settings: "Settings",
       SettingsDescription: "Customize your settings.",
@@ -45,6 +51,8 @@ const resources = {
       FailedSearchQuery: "Something went wrong while searching.",
       Pages: "Pages",
       NoBooksFound: "No books found.",
+      Previous: "Previous",
+      Next: "Next",
     },
   },
   es: {
@@ -67,8 +75,12 @@ const resources = {
       LoginSuccessful: "Iniciado sesión exitosamente.",
       NotLoggedIn: "No se ha iniciado sesión.",
       LoggedOutSuccessfully: "Sesión cerrada exitosamente.",
-      Previous: "Anterior",
-      Next: "Siguiente",
+      // Sidebar
+      Books: "Libros",
+      WantToRead: "Por leer",
+      Profile: "Perfil",
+      Diary: "Diario",
+      Reviews: "Reviews",
       // Settings
       Settings: "Ajustes",
       SettingsDescription: "Personaliza tus ajustes.",
