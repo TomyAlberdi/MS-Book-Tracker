@@ -46,12 +46,12 @@ const BooksPagination = ({
     }
     return Math.ceil(paginatedBooks.data.numFound / limit);
   };
+  const totalPages = calculateTotalPages();
 
   useEffect(() => {
     if (paginatedBooks.data === null) {
       return;
     }
-    const totalPages = calculateTotalPages();
     const isFirst = currentPage === 1;
     const isLast = currentPage === totalPages;
     setPaginationInfo({
@@ -84,17 +84,34 @@ const BooksPagination = ({
   };
 
   const getVisiblePages = () => {
-    const visiblePages = 11;
-    let start = Math.max(1, currentPage - Math.floor(visiblePages / 2));
-    let end = start + visiblePages - 1;
-    const totalPages = calculateTotalPages();
+    const pages: (number | string)[] = [];
+    const visibleMiddle = 5;
+    const half = Math.floor(visibleMiddle / 2);
 
-    if (end > totalPages) {
-      end = totalPages;
-      start = Math.max(1, end - visiblePages + 1);
+    if (totalPages <= 7) {
+      return Array.from({ length: totalPages }, (_, i) => i + 1);
     }
 
-    return Array.from({ length: end - start + 1 }, (_, i) => start + i);
+    pages.push(1);
+
+    const start = Math.max(2, currentPage - half);
+    const end = Math.min(totalPages - 1, currentPage + half);
+
+    if (start > 2) {
+      pages.push("...");
+    }
+
+    for (let i = start; i <= end; i++) {
+      pages.push(i);
+    }
+
+    if (end < totalPages - 1) {
+      pages.push("...");
+    }
+
+    pages.push(totalPages);
+
+    return pages;
   };
 
   return (
@@ -116,13 +133,16 @@ const BooksPagination = ({
                 <DropdownMenuLabel className="text-center">
                   {t("Pages")}
                 </DropdownMenuLabel>
-                {getVisiblePages().map((pageNum) => (
+                {getVisiblePages().map((item, index) => (
                   <DropdownMenuItem
-                    key={pageNum}
-                    onClick={() => handleGoToPage(pageNum)}
+                    key={index}
+                    onClick={() =>
+                      typeof item === "number" && handleGoToPage(item)
+                    }
                     className="flex items-center justify-center"
+                    disabled={item === "..."}
                   >
-                    {pageNum}
+                    {item}
                   </DropdownMenuItem>
                 ))}
               </DropdownMenuContent>
