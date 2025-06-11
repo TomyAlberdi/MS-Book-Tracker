@@ -16,6 +16,7 @@ export interface PartialWork {
   key: string;
   cover_edition_key: string;
   title: string;
+  author_name: string[];
 }
 
 export interface Edition {
@@ -31,7 +32,7 @@ export interface Edition {
   url?: string[];
   key?: string;
   authors?: {
-    key?: string;
+    key: string;
   }[];
   publish_places?: string[];
   subjects?: string[];
