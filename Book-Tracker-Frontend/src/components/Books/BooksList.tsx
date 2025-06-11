@@ -38,7 +38,7 @@ const BooksList = () => {
 
   if (!paginatedBooks.loading && paginatedBooks.data !== null) {
     return (
-      <div className="listClasses">
+      <div className={listClasses}>
         {paginatedBooks.data.docs.map((work) => (
           <BookCard work={work} key={work.key} />
         ))}
