@@ -11,7 +11,7 @@ const BooksMain = () => {
 
   const [currentPage, setCurrentPage] = useState(1);
   const [searchQuery, setSearchQuery] = useState("");
-  const LIMIT = 12;
+  const LIMIT = 9;
 
   useEffect(() => {
     if (searchQuery) {
