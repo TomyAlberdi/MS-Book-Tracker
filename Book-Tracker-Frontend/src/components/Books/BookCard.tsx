@@ -16,6 +16,11 @@ interface BookCardProps {
   work: PartialWork;
 }
 
+//TODO: add context menu on right click with options:
+// 1. Add to reading list
+// 2. Add to want to read list
+// 3. Add to diary
+// 4. Review
 const BookCard = ({ work }: BookCardProps) => {
   const { t } = useTranslation();
   const { getBestEditionForWork, getAuthors, getBookCoverUrl } =
@@ -28,7 +33,6 @@ const BookCard = ({ work }: BookCardProps) => {
   const getAuthorsText = async (edition: Edition | null) => {
     let text;
     if (edition?.by_statement) {
-      // remove "By " from by_statement
       text = edition.by_statement.replace("By ", "").replace("by ", "");
     } else if (work.author_name) {
       text = work.author_name.join(", ");
