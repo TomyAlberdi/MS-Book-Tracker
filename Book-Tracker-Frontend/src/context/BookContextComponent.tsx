@@ -91,7 +91,6 @@ const BookContextComponent: React.FC<BookContextComponentProps> = ({
   };
 
   const getAuthor = async (authorKey: string) => {
-    console.log(authorKey);
     try {
       const url = `${BASE_URL}${authorKey}.json`;
       const res = await fetch(url);

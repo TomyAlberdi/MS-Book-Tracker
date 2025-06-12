@@ -55,6 +55,7 @@ const resources = {
       Previous: "Previous",
       Next: "Next",
       BookCardError: "An error occurred while loading this book.",
+      ViewMore: "View More",
     },
   },
   es: {
@@ -110,6 +111,7 @@ const resources = {
       Previous: "Anterior",
       Next: "Siguiente",
       BookCardError: "Se produjo un error al cargar este libro.",
+      ViewMore: "Ver más",
     },
   },
 };

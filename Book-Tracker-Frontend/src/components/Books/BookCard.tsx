@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import { Card, CardDescription, CardTitle } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import {
@@ -7,18 +8,20 @@ import {
 } from "@/components/ui/tooltip";
 import { useBookContext } from "@/context/UseBookContext";
 import type { Edition, PartialWork } from "@/lib/interfaces";
+import { BookOpenText } from "lucide-react";
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 interface BookCardProps {
   work: PartialWork;
 }
 
 const BookCard = ({ work }: BookCardProps) => {
+  const { t } = useTranslation();
   const { getBestEditionForWork, getAuthors, getBookCoverUrl } =
     useBookContext();
 
   const [Edition, setEdition] = useState<Edition | null>(null);
-  //TODO: Implement get book cover context function
   const [Cover, setCover] = useState<string | null>(null);
   const [authorsText, setAuthorsText] = useState<string | null>(null);
 
@@ -48,12 +51,22 @@ const BookCard = ({ work }: BookCardProps) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [work.key]);
 
+  const getLanguageTag = (languages: { key?: string }[]) => {
+    const langKey = languages?.[0]?.key;
+    return langKey ? langKey.substring(langKey.length - 3) : "";
+  };
+
   if (!Edition) {
     return <Skeleton className="aspect-video w-full" />;
   }
 
   return (
-    <Card className="aspect-video grid grid-cols-5 p-2 gap-2 hover:scale-102 transition-transform duration-300 ease-in-out cursor-pointer">
+    <Card className="relative aspect-video grid grid-cols-5 p-2 gap-2 hover:scale-102 transition-transform duration-300 ease-in-out cursor-pointer">
+      {Edition.languages && (
+        <div className="absolute top-3 left-0 z-10 flex justify-center items-center px-3 py-1 bg-primary text-secondary font-bold shadow-lg rounded-r-lg">
+          {getLanguageTag(Edition.languages)}
+        </div>
+      )}
       <section className="col-span-2">
         {Cover ? (
           <div
@@ -64,10 +77,10 @@ const BookCard = ({ work }: BookCardProps) => {
           <Skeleton className="h-full w-full rounded-xl" />
         )}
       </section>
-      <section className="col-span-3 flex flex-col justify-start items-start">
+      <section className="col-span-3 flex flex-col justify-start items-start gap-1">
         <Tooltip>
           <TooltipTrigger asChild>
-            <CardTitle className="font-semibold text-2xl w-full line-clamp-2 leading-normal">
+            <CardTitle className="font-semibold text-lg md:text-2xl w-full line-clamp-2 leading-tight md:leading-normal">
               {Edition.title}
             </CardTitle>
           </TooltipTrigger>
@@ -76,11 +89,20 @@ const BookCard = ({ work }: BookCardProps) => {
             <CardDescription>By {authorsText ?? "..."}</CardDescription>
           </TooltipContent>
         </Tooltip>
+        {Edition.subtitle && (
+          <div className="text-sm text-md line-clamp-2">
+            <span>{Edition.subtitle}</span>
+          </div>
+        )}
         <div>
-          <CardDescription className="line-clamp-2">
+          <CardDescription className="py-1 px-2 rounded-lg bg-muted line-clamp-2 text-sm md:text-md">
             By {authorsText ?? "..."}
           </CardDescription>
         </div>
+        <Button className="w-full mt-auto">
+          <BookOpenText />
+          {t("ViewMore")}
+        </Button>
       </section>
     </Card>
   );
