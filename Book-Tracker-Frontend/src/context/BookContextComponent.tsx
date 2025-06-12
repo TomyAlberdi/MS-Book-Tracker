@@ -1,10 +1,11 @@
 import type { BookContextType } from "@/context/BookContext";
 import { BookContext } from "@/context/BookContext";
 import type {
+  Edition,
   PaginatedSearchResult,
   PartialWork,
 } from "@/lib/interfaces";
-import { sortEditionsByPriority } from "@/lib/utils";
+import { findEditionCoverKey, sortEditionsByPriority } from "@/lib/utils";
 import { useState, type ReactNode } from "react";
 import { useTranslation } from "react-i18next";
 import { toast } from "sonner";
@@ -20,7 +21,7 @@ const BookContextComponent: React.FC<BookContextComponentProps> = ({
 
   const BASE_URL = import.meta.env.VITE_BOOKS_BASE_URL;
   const PAGINATED_BOOKS_FIELDS = "key,cover_edition_key,title";
-  //const IMAGES_URL = import.meta.env.VITE_BOOKS_IMAGES_URL;
+  const IMAGES_URL = import.meta.env.VITE_BOOKS_IMAGES_URL;
 
   const [paginatedBooks, setPaginatedBooks] = useState<
     PaginatedSearchResult<PartialWork>
@@ -82,13 +83,15 @@ const BookContextComponent: React.FC<BookContextComponentProps> = ({
     }
   };
 
-  //TODO: Implement get book cover request
-  const getBookCover = async (coverCode: string) => {
-    return null;
+  const getBookCoverUrl = (edition?: Edition, size?: string) => {
+    if (!edition) return null;
+    const coverKey = findEditionCoverKey(edition);
+    if (!coverKey) return null;
+    return `${IMAGES_URL}/b${coverKey}-${size}.jpg`;
   };
 
   const getAuthor = async (authorKey: string) => {
-    console.log(authorKey)
+    console.log(authorKey);
     try {
       const url = `${BASE_URL}${authorKey}.json`;
       const res = await fetch(url);
@@ -118,7 +121,7 @@ const BookContextComponent: React.FC<BookContextComponentProps> = ({
     paginatedBooks,
     searchBooks,
     getBestEditionForWork,
-    getBookCover,
+    getBookCoverUrl,
     getAuthor,
     getAuthors,
   };

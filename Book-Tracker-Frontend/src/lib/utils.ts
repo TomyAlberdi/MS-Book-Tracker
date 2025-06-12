@@ -28,3 +28,12 @@ export function scoreEdition(edition: Edition): number {
 export function sortEditionsByPriority(editions: Edition[]): Edition[] {
   return [...editions].sort((a, b) => scoreEdition(b) - scoreEdition(a));
 }
+
+export function findEditionCoverKey(edition: Edition): string | null {
+  if (edition.covers) return `/id/${edition.covers[0]}`;
+  if (edition.isbn_10) return `/isbn/${edition.isbn_10[0]}`;
+  if (edition.isbn_13) return `/isbn/${edition.isbn_13[0]}`;
+  if (edition.lccn) return `/lccn/${edition.lccn[0]}`;
+  if (edition.oclc_numbers) return `/oclc/${edition.oclc_numbers[0]}`;
+  return null;
+}

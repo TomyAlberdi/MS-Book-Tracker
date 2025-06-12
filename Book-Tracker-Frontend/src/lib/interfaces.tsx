@@ -59,6 +59,8 @@ export interface Edition {
   subtitle?: string;
   ocaid?: string;
   isbn_10?: string[];
+  isbn_13?: string[];
+  oclc_numbers: string[];
   lccn?: string[];
   dewey_decimal_class?: string[];
   lc_classifications?: string[];

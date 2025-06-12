@@ -14,7 +14,8 @@ interface BookCardProps {
 }
 
 const BookCard = ({ work }: BookCardProps) => {
-  const { getBestEditionForWork, getAuthors } = useBookContext();
+  const { getBestEditionForWork, getAuthors, getBookCoverUrl } =
+    useBookContext();
 
   const [Edition, setEdition] = useState<Edition | null>(null);
   //TODO: Implement get book cover context function
@@ -41,6 +42,7 @@ const BookCard = ({ work }: BookCardProps) => {
       const edition = await getBestEditionForWork(work.key);
       setEdition(edition);
       getAuthorsText(edition);
+      setCover(getBookCoverUrl(edition ?? undefined, "M"));
     };
     fetchEdition();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -55,7 +57,7 @@ const BookCard = ({ work }: BookCardProps) => {
       <section className="col-span-2">
         {Cover ? (
           <div
-            className="rounded-md h-full w-full bg-contain bg-center bg-no-repeat"
+            className="rounded-md h-full w-full bg-contain bg-center bg-no-repeat bg-muted"
             style={{ backgroundImage: `url(${Cover})` }}
           ></div>
         ) : (
@@ -75,7 +77,9 @@ const BookCard = ({ work }: BookCardProps) => {
           </TooltipContent>
         </Tooltip>
         <div>
-          <CardDescription className="line-clamp-2">By {authorsText ?? "..."}</CardDescription>
+          <CardDescription className="line-clamp-2">
+            By {authorsText ?? "..."}
+          </CardDescription>
         </div>
       </section>
     </Card>
