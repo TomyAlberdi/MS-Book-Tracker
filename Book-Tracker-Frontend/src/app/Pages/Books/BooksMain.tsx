@@ -1,6 +1,6 @@
-import BooksHeader from "@/components/Books/BooksHeader";
-import BooksList from "@/components/Books/BooksList";
-import BooksPagination from "@/components/Books/BooksPagination";
+import BooksHeader from "@/app/Pages/Books/BooksHeader";
+import BooksList from "@/app/Pages/Books/BooksList";
+import BooksPagination from "@/app/Pages/Books/BooksPagination";
 import { useBookContext } from "@/context/UseBookContext";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";

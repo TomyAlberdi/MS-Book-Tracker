@@ -1,4 +1,4 @@
-import BookCard from "@/components/Books/BookCard";
+import BookCard from "@/app/Pages/Books/BookCard";
 import { Alert, AlertTitle } from "@/components/ui/alert";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useBookContext } from "@/context/UseBookContext";

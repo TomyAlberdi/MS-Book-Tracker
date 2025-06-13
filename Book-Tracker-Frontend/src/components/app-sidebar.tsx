@@ -7,11 +7,11 @@ import {
 } from "lucide-react";
 import * as React from "react";
 
-import Feedback from "@/components/Feedback";
+import Feedback from "@/app/Pages/Feedback/Feedback";
+import Settings from "@/app/Pages/Settings/Settings";
 import { NavMain } from "@/components/nav-main";
 import { NavSecondary } from "@/components/nav-secondary";
 import NavUser from "@/components/nav-user";
-import Settings from "@/components/Settings";
 import {
   Sidebar,
   SidebarContent,

@@ -1,6 +1,6 @@
 import Page from "@/app/dashboard/page";
-import Login from "@/components/Auth/Login";
-import Register from "@/components/Auth/Register";
+import Login from "@/app/Pages/Auth/Login";
+import Register from "@/app/Pages/Auth/Register";
 import { routesConfig } from "@/lib/routesConfig";
 import { useRoutes } from "react-router-dom";
 

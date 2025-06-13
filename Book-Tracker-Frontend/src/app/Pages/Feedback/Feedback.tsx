@@ -1,4 +1,4 @@
-import ContactForm from "@/components/ContactForm";
+import ContactForm from "@/app/Pages/Feedback/ContactForm";
 import {
   DialogDescription,
   DialogHeader,
