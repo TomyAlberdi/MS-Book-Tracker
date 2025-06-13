@@ -13,7 +13,23 @@ services:
     ports:
       - "3333:3306"
 
+  mongodb:
+    image: mongo:7.0
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: mongoadmin
+      MONGO_INITDB_ROOT_PASSWORD: mongo-secret
+      MONGO_INITDB_DATABASE: dbBooks
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - spring-mysql
+    ports:
+      - "3334:27017"
+
 volumes:
   db-data: {}
+  mongo-data: {}
+
 networks:
   spring-mysql: {}
