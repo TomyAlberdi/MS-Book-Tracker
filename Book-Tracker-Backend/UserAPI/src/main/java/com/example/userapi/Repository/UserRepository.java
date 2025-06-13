@@ -1,6 +1,6 @@
 package com.example.userapi.Repository;
 
-import com.example.userapi.Entity.User;
+import com.example.userapi.Model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

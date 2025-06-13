@@ -1,6 +1,7 @@
 package com.example.userapi.Controller;
 
-import com.example.userapi.Security.AuthRequest;
+import com.example.userapi.Model.AuthRequest;
+import com.example.userapi.Model.UserResponseDTO;
 import com.example.userapi.Security.JwtUtil;
 import com.example.userapi.Service.UserService;
 import lombok.AllArgsConstructor;
@@ -23,8 +24,8 @@ public class UserController {
     @PostMapping("/register")
     public ResponseEntity<?> register(@RequestBody AuthRequest request) {
         try {
-            userService.register(request.getUsername(), request.getPassword());
-            return ResponseEntity.ok("User registered successfully");
+            UserResponseDTO response = userService.register(request.getUsername(), request.getPassword());
+            return ResponseEntity.ok(response);
         } catch (RuntimeException e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(Collections.singletonMap("error", e.getMessage()));
         }
@@ -33,8 +34,8 @@ public class UserController {
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody AuthRequest request) {
         try {
-            String token = userService.login(request.getUsername(), request.getPassword());
-            return ResponseEntity.ok(Collections.singletonMap("token", token));
+            UserResponseDTO response = userService.login(request.getUsername(), request.getPassword());
+            return ResponseEntity.ok(response);
         } catch (RuntimeException e) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
                     .body(Collections.singletonMap("error", e.getMessage()));
