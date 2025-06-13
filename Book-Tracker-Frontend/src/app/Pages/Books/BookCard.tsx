@@ -1,11 +1,8 @@
+import BookCardContextMenuContent from "@/app/Pages/Books/BookCardContextMenuContent";
 import { Button } from "@/components/ui/button";
 import { Card, CardDescription, CardTitle } from "@/components/ui/card";
 import {
-  ContextMenu,
-  ContextMenuContent,
-  ContextMenuItem,
-  ContextMenuShortcut,
-  ContextMenuTrigger,
+  ContextMenu, ContextMenuTrigger
 } from "@/components/ui/context-menu";
 import { Skeleton } from "@/components/ui/skeleton";
 import {
@@ -16,11 +13,7 @@ import {
 import { useBookContext } from "@/context/UseBookContext";
 import type { Edition, PartialWork } from "@/lib/interfaces";
 import {
-  BookHeart,
-  BookOpenText,
-  BookPlus,
-  Clock4,
-  NotebookPen,
+  BookPlus
 } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -120,38 +113,7 @@ const BookCard = ({ work }: BookCardProps) => {
           </section>
         </Card>
       </ContextMenuTrigger>
-      <ContextMenuContent className="w-52">
-        <ContextMenuItem inset>
-          {t("Reading")}
-          <ContextMenuShortcut>
-            <BookOpenText />
-          </ContextMenuShortcut>
-        </ContextMenuItem>
-        <ContextMenuItem inset>
-          {t("WantToRead")}
-          <ContextMenuShortcut>
-            <Clock4 />
-          </ContextMenuShortcut>
-        </ContextMenuItem>
-        <ContextMenuItem inset>
-          {t("AddToDiary")}
-          <ContextMenuShortcut>
-            <BookHeart />
-          </ContextMenuShortcut>
-        </ContextMenuItem>
-        <ContextMenuItem>
-          {t("Review")}
-          <ContextMenuShortcut>
-            <NotebookPen />
-          </ContextMenuShortcut>
-        </ContextMenuItem>
-        <ContextMenuItem>
-          {t("ViewBookDetails")}
-          <ContextMenuShortcut>
-            <BookPlus />
-          </ContextMenuShortcut>
-        </ContextMenuItem>
-      </ContextMenuContent>
+      <BookCardContextMenuContent />
     </ContextMenu>
   );
 };
