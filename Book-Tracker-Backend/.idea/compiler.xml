@@ -29,6 +29,16 @@
         </processorPath>
         <module name="Gateway" />
       </profile>
+      <profile name="Annotation profile for BookAPI" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-configuration-processor/unknown/spring-boot-configuration-processor-unknown.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/unknown/lombok-unknown.jar" />
+        </processorPath>
+        <module name="BookAPI" />
+      </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="Book-Tracker-Backend" target="21" />
@@ -37,6 +47,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="Book-Tracker-Backend" options="-parameters" />
+      <module name="BookAPI" options="-parameters" />
       <module name="ConfigServer" options="-parameters" />
       <module name="EurekaServer" options="-parameters" />
       <module name="Gateway" options="-parameters" />
