@@ -20,6 +20,7 @@ const BooksMain = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentPage, searchQuery]);
 
+  //TODO: Implement author search functionality
   return (
     <div className="flex flex-col h-full">
       <h1 className="text-2xl font-bold">{t("SearchBooks")}</h1>

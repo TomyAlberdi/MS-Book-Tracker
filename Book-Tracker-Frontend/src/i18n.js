@@ -56,6 +56,11 @@ const resources = {
       Next: "Next",
       BookCardError: "An error occurred while loading this book.",
       ViewMore: "View More",
+      // Books functionalities
+      AddToDiary: "Add to Diary",
+      RemoveFromDiary: "Remove from Diary",
+      Review: "Review",
+      ViewBookDetails: "View Book Details",
     },
   },
   es: {
@@ -112,6 +117,11 @@ const resources = {
       Next: "Siguiente",
       BookCardError: "Se produjo un error al cargar este libro.",
       ViewMore: "Ver más",
+      // Books functionalities
+      AddToDiary: "Añadir al Diario",
+      RemoveFromDiary: "Eliminar del Diario",
+      Review: "Crear Review",
+      ViewBookDetails: "Ver Detalles del Libro",
     },
   },
 };
