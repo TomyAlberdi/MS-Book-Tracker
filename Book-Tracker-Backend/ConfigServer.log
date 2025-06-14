@@ -1,0 +1,27 @@
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.0)
+
+2025-06-14T20:30:29.752-03:00  INFO 20684 --- [config-server] [           main] c.e.C.ConfigServerApplication            : Starting ConfigServerApplication v0.0.1-SNAPSHOT using Java 20.0.1 with PID 20684 (D:\Proyectos\MS-Book-Tracker\Book-Tracker-Backend\ConfigServer\target\ConfigServer-0.0.1-SNAPSHOT.jar started by Pcstore in D:\Proyectos\MS-Book-Tracker\Book-Tracker-Backend\ConfigServer)
+2025-06-14T20:30:29.752-03:00  INFO 20684 --- [config-server] [           main] c.e.C.ConfigServerApplication            : No active profile set, falling back to 1 default profile: "default"
+2025-06-14T20:30:30.809-03:00  INFO 20684 --- [config-server] [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=351a9386-b2a6-37d7-a466-a07e12d293b3
+2025-06-14T20:30:31.129-03:00  INFO 20684 --- [config-server] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8888 (http)
+2025-06-14T20:30:31.149-03:00  INFO 20684 --- [config-server] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-06-14T20:30:31.149-03:00  INFO 20684 --- [config-server] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.41]
+2025-06-14T20:30:31.169-03:00  INFO 20684 --- [config-server] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-06-14T20:30:31.169-03:00  INFO 20684 --- [config-server] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1340 ms
+2025-06-14T20:30:32.039-03:00  INFO 20684 --- [config-server] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8888 (http) with context path '/'
+2025-06-14T20:30:32.109-03:00  INFO 20684 --- [config-server] [           main] c.e.C.ConfigServerApplication            : Started ConfigServerApplication in 2.912 seconds (process running for 3.431)
+2025-06-14T20:32:10.509-03:00  INFO 20684 --- [config-server] [nio-8888-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-06-14T20:32:10.509-03:00  INFO 20684 --- [config-server] [nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-06-14T20:32:10.509-03:00  INFO 20684 --- [config-server] [nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2025-06-14T20:32:12.639-03:00  INFO 20684 --- [config-server] [nio-8888-exec-1] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [C:\Users\Pcstore\AppData\Local\Temp\config-repo-5567106694088717211\EurekaServer.yml]' via location 'file:/C:/Users/Pcstore/AppData/Local/Temp/config-repo-5567106694088717211/'
+2025-06-14T20:33:44.509-03:00  INFO 20684 --- [config-server] [ionShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-06-14T20:33:44.511-03:00  WARN 20684 --- [config-server] [       Thread-3] .c.s.e.MultipleJGitEnvironmentRepository : Failed to delete temporary directory on exit: java.nio.file.AccessDeniedException: C:\Users\Pcstore\AppData\Local\Temp\config-repo-5567106694088717211\.git\objects\pack\pack-f769662fd417f3558cd1e0a28b20130e78c0dcee.idx
+2025-06-14T20:33:44.549-03:00  INFO 20684 --- [config-server] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
