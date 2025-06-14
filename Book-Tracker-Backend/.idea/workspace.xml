@@ -5,11 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="af117c7c-4405-4ad6-a817-222c65aca1b0" name="Changes" comment="Configured User API module">
-      <change afterPath="$PROJECT_DIR$/BookAPI/src/main/resources/bootstrap.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookAPI/src/main/java/com/example/bookapi/Controller/BookListController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookAPI/src/main/java/com/example/bookapi/Controller/DiaryController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookAPI/src/main/java/com/example/bookapi/Model/BookList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookAPI/src/main/java/com/example/bookapi/Model/DiaryEntry.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookAPI/src/main/java/com/example/bookapi/Model/DiaryEntryRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookAPI/src/main/java/com/example/bookapi/Repository/BookListRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookAPI/src/main/java/com/example/bookapi/Repository/DiaryEntryRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookAPI/src/main/java/com/example/bookapi/Repository/UserApiClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookAPI/src/main/java/com/example/bookapi/Service/BookListService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookAPI/src/main/java/com/example/bookapi/Service/DiaryService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookAPI/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/BookAPI/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookAPI/src/main/java/com/example/bookapi/BookApiApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/BookAPI/src/main/java/com/example/bookapi/BookApiApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserAPI/src/main/java/com/example/userapi/Controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserAPI/src/main/java/com/example/userapi/Controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserAPI/src/main/java/com/example/userapi/Security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserAPI/src/main/java/com/example/userapi/Security/SecurityConfig.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,8 +30,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -49,40 +60,41 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Maven.BookAPI [install].executor": "Run",
-    "Maven.BookAPI [validate].executor": "Run",
-    "Maven.BookAPI [verify].executor": "Run",
-    "Maven.UserAPI [clean].executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Spring Boot.ConfigServerApplication.executor": "Run",
-    "Spring Boot.EurekaServerApplication.executor": "Run",
-    "Spring Boot.GatewayApplication.executor": "Run",
-    "Spring Boot.UserApiApplication.executor": "Run",
-    "git-widget-placeholder": "dev/backend",
-    "ignore.virus.scanning.warn.message": "true",
-    "jdk.selected.JAVA_MODULE": "openjdk-24",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Proyectos/MS-Book-Tracker/Book-Tracker-Backend/UserAPI",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.55517244",
-    "run.configurations.included.in.services": "true",
-    "settings.editor.selected.configurable": "reference.projectsettings.compiler.annotationProcessors",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Maven.BookAPI [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.BookAPI [validate].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.BookAPI [verify].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.UserAPI [clean].executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Spring Boot.BookApiApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.ConfigServerApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.EurekaServerApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.GatewayApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.UserApiApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev/backend&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;openjdk-24&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Proyectos/MS-Book-Tracker/Book-Tracker-Backend/UserAPI&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.55517244&quot;,
+    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.annotationProcessors&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunDashboard">
     <option name="configurationTypes">
       <set>
@@ -170,6 +182,7 @@
       <workItem from="1748563253603" duration="5132000" />
       <workItem from="1748889160248" duration="7337000" />
       <workItem from="1749846720850" duration="5415000" />
+      <workItem from="1749921727676" duration="13296000" />
     </task>
     <task id="LOCAL-00001" summary="Configured Config Server and Eureka Server modules">
       <option name="closed" value="true" />

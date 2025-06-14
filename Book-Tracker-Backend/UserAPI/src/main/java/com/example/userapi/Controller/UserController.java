@@ -2,6 +2,7 @@ package com.example.userapi.Controller;
 
 import com.example.userapi.Model.AuthRequest;
 import com.example.userapi.Model.UserResponseDTO;
+import com.example.userapi.Repository.UserRepository;
 import com.example.userapi.Security.JwtUtil;
 import com.example.userapi.Service.UserService;
 import lombok.AllArgsConstructor;
@@ -19,6 +20,7 @@ import java.util.Collections;
 @RequestMapping("/users")
 public class UserController {
     private final UserService userService;
+    private final UserRepository userRepository;
     private final JwtUtil jwtUtil;
     
     @PostMapping("/register")
@@ -51,4 +53,11 @@ public class UserController {
         String username = jwtUtil.getUsername(token);
         return ResponseEntity.ok(Collections.singletonMap("username", username));
     }
+    
+    @GetMapping("/exists/{id}")
+    public ResponseEntity<Boolean> checkUserExists(@PathVariable Long id) {
+        boolean exists = userRepository.existsById(id);
+        return ResponseEntity.ok(exists);
+    }
+    
 }
